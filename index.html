@@ -1,462 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shazna's Wellness Journey</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        sage: {
-                            50: '#f4f7f4',
-                            100: '#e4ebe4',
-                            200: '#cbd9cb',
-                            300: '#a6bea7',
-                            400: '#7d9e7e',
-                            500: '#5c805e',
-                            600: '#466548',
-                            700: '#3a513b',
-                            800: '#304231',
-                            900: '#28372a',
-                        },
-                        sand: '#fdfbf7',
-                        blush: '#f9eee8',
-                        gold: '#d4af37',
-                        rose: '#c27b7f'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shazna's Recomposition & Wellness Plan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: {
+              50: '#f4f7f4',
+              100: '#e3ebe3',
+              200: '#c7d7c7',
+              600: '#527853',
+              700: '#3e5c3e',
+              800: '#2d432d',
+            },
+            sand: {
+              50: '#fdfbf7',
+              100: '#f7f2e8',
+              200: '#ede3d1',
+              600: '#b08968',
             }
+          }
         }
-    </script>
-    <style>
-        /* Custom scrollbar for an app-like feel */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fdfbf7; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd9cb; 
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a6bea7; 
-        }
-        .fade-in {
-            animation: fadeIn 0.4s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-sand text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+<body class="bg-sand-50 text-slate-800 min-h-screen flex flex-col antialiased">
 
-    <!-- Header / Top Nav -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-2 text-sage-700">
-                    <i class="fa-solid fa-leaf text-xl"></i>
-                    <h1 class="font-serif text-2xl font-semibold tracking-wide">Shazna</h1>
-                </div>
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                    <button onclick="showTab('home')" id="btn-home" class="nav-btn pb-1 border-b-2 border-transparent text-gray-500 hover:text-sage-600 transition-colors">Overview</button>
-                    <button onclick="showTab('nutrition')" id="btn-nutrition" class="nav-btn pb-1 border-b-2 border-transparent text-gray-500 hover:text-sage-600 transition-colors">Nutrition</button>
-                    <button onclick="showTab('meal-prep')" id="btn-meal-prep" class="nav-btn pb-1 border-b-2 border-transparent text-gray-500 hover:text-sage-600 transition-colors">Meal Prep</button>
-                    <button onclick="showTab('workout')" id="btn-workout" class="nav-btn pb-1 border-b-2 border-transparent text-gray-500 hover:text-sage-600 transition-colors">Workouts</button>
-                </nav>
-            </div>
-            <!-- Mobile Nav (Scrollable horizontal) -->
-            <div class="md:hidden flex overflow-x-auto pb-2 space-x-4 text-sm font-medium hide-scroll">
-                <button onclick="showTab('home')" id="btn-home-mob" class="nav-btn whitespace-nowrap pb-1 border-b-2 border-transparent text-gray-500 transition-colors px-2">Overview</button>
-                <button onclick="showTab('nutrition')" id="btn-nutrition-mob" class="nav-btn whitespace-nowrap pb-1 border-b-2 border-transparent text-gray-500 transition-colors px-2">Nutrition</button>
-                <button onclick="showTab('meal-prep')" id="btn-meal-prep-mob" class="nav-btn whitespace-nowrap pb-1 border-b-2 border-transparent text-gray-500 transition-colors px-2">Meal Prep</button>
-                <button onclick="showTab('workout')" id="btn-workout-mob" class="nav-btn whitespace-nowrap pb-1 border-b-2 border-transparent text-gray-500 transition-colors px-2">Workouts</button>
-            </div>
+  <!-- Header -->
+  <header class="bg-white border-b border-sand-200 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-bold text-lg">
+          S
         </div>
-    </header>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">Shazna's Wellness Plan</h1>
+          <p class="text-xs text-slate-500">2-Month Body Recomposition & Core Rehab</p>
+        </div>
+      </div>
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sage-100 text-sage-800">
+        Phase 1 Active
+      </span>
+    </div>
+  </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-8 relative">
+  <!-- Navigation Bar -->
+  <nav class="bg-white border-b border-sand-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex space-x-2 sm:space-x-8 overflow-x-auto no-scrollbar py-2">
+        <button onclick="switchTab('overview')" id="nav-overview" class="nav-btn px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors bg-sage-600 text-white">
+          Overview & Goals
+        </button>
+        <button onclick="switchTab('rules')" id="nav-rules" class="nav-btn px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors text-slate-600 hover:text-slate-900 hover:bg-sand-100">
+          Hidden Calories & Rules
+        </button>
+        <button onclick="switchTab('meals')" id="nav-meals" class="nav-btn px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors text-slate-600 hover:text-slate-900 hover:bg-sand-100">
+          Meal Prep & Varieties
+        </button>
+        <button onclick="switchTab('workouts')" id="nav-workouts" class="nav-btn px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors text-slate-600 hover:text-slate-900 hover:bg-sand-100">
+          Workouts & Videos
+        </button>
+      </div>
+    </div>
+  </nav>
 
-        <!-- ================= HOME TAB ================= -->
-        <section id="home" class="tab-content fade-in">
-            <div class="bg-sage-100 rounded-3xl p-8 mb-8 text-center relative overflow-hidden shadow-sm">
-                <div class="absolute -right-10 -top-10 text-sage-200 opacity-50 text-9xl">
-                    <i class="fa-solid fa-spa"></i>
-                </div>
-                <h2 class="relative font-serif text-3xl md:text-4xl text-sage-800 font-semibold mb-4">Shazna's 2-Month Wellness & Recomposition Plan</h2>
-                <p class="relative text-sage-700 max-w-2xl mx-auto text-lg">A gentle, sustainable approach to healing your core, increasing stamina, and achieving fat loss using comforting Sri Lankan ingredients.</p>
-            </div>
+  <!-- Main Content Area -->
+  <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-blush rounded-full flex items-center justify-center text-rose mb-4 text-xl">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-semibold mb-2 text-gray-800">Primary Goals</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Target and reduce "mummy tummy"</li>
-                        <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Heal and strengthen the deep core</li>
-                        <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Rebuild daily stamina safely</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center text-sage-600 mb-4 text-xl">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-semibold mb-2 text-gray-800">Health Focus</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Manage and prevent gastritis</li>
-                        <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Volume eating for maximum satiety</li>
-                        <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Affordable, Halal Sri Lankan ingredients</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- TAB 1: OVERVIEW & GOALS -->
+    <div id="tab-overview" class="tab-content space-y-6">
+      
+      <!-- Key Stats Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-white p-4 rounded-xl border border-sand-200 shadow-sm">
+          <p class="text-xs text-slate-500 font-medium">Daily Calories</p>
+          <p class="text-xl sm:text-2xl font-bold text-sage-700 mt-1">1,450 - 1,500</p>
+          <p class="text-xs text-slate-400 mt-1">Fat loss deficit</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-sand-200 shadow-sm">
+          <p class="text-xs text-slate-500 font-medium">Daily Protein</p>
+          <p class="text-xl sm:text-2xl font-bold text-sage-700 mt-1">~105g</p>
+          <p class="text-xs text-slate-400 mt-1">Protects muscle</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-sand-200 shadow-sm">
+          <p class="text-xs text-slate-500 font-medium">Workout Days</p>
+          <p class="text-xl sm:text-2xl font-bold text-sage-700 mt-1">3 Days / wk</p>
+          <p class="text-xs text-slate-400 mt-1">Calisthenics & core</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-sand-200 shadow-sm">
+          <p class="text-xs text-slate-500 font-medium">Target Timeline</p>
+          <p class="text-xl sm:text-2xl font-bold text-sage-700 mt-1">8 Weeks</p>
+          <p class="text-xs text-slate-400 mt-1">Primary transformation</p>
+        </div>
+      </div>
 
-        <!-- ================= NUTRITION TAB ================= -->
-        <section id="nutrition" class="tab-content hidden fade-in">
-            <h2 class="font-serif text-3xl text-sage-800 font-semibold mb-6">Nutrition Framework</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <!-- Calorie Target -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-sage-100 border-l-4 border-l-sage-500">
-                    <h3 class="font-serif text-xl font-semibold mb-2 text-sage-800">Daily Energy Target</h3>
-                    <p class="text-3xl font-light text-gray-800 mb-2">1,450 - 1,500 <span class="text-base text-gray-500">kcal/day</span></p>
-                    <p class="text-gray-600 text-sm">A gentle deficit to promote fat loss without triggering hunger, lethargy, or acid build-up.</p>
-                </div>
+      <!-- Core Objective Banner -->
+      <div class="bg-gradient-to-br from-sage-700 to-sage-800 text-white rounded-2xl p-6 shadow-md">
+        <h2 class="text-xl font-bold mb-2">The Recomposition Strategy</h2>
+        <p class="text-sage-100 text-sm leading-relaxed mb-4">
+          At 5'4" and 56kg, Shazna is at a very healthy weight. The "mummy pooch" and double chin are caused by post-partum muscle looseness (weakened Transverse Abdominis) and posture rather than excess body weight. Our goal is <strong>body recomposition</strong>: burning targeted fat while tightening deep core muscles without triggering her gastritis.
+        </p>
+        <div class="grid sm:grid-cols-3 gap-3 text-xs">
+          <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+            <span class="font-bold text-white block mb-1">1. High Volume Eating</span>
+            Using water-rich veggies & 50/50 rice swaps to keep stomach physically full.
+          </div>
+          <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+            <span class="font-bold text-white block mb-1">2. Gastritis Protection</span>
+            Warm, soupy dinners and no skipped breakfasts to prevent acid flare-ups.
+          </div>
+          <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+            <span class="font-bold text-white block mb-1">3. Corset Core Rehab</span>
+            Safe calisthenics & vacuums to pull the belly flat from the inside out.
+          </div>
+        </div>
+      </div>
 
-                <!-- 50/50 Bowl -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-sage-100">
-                    <div class="flex items-center space-x-3 mb-3">
-                        <i class="fa-solid fa-bowl-rice text-2xl text-gold"></i>
-                        <h3 class="font-serif text-xl font-semibold text-gray-800">The 50/50 Rice Bowl</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">The ultimate strategy for volume eaters who love rice.</p>
-                    <div class="bg-sage-50 p-3 rounded-lg text-sm text-sage-800">
-                        <strong>How to:</strong> Mix 1/2 cup cooked rice thoroughly with 1/2 cup steamed, shredded cabbage. Visually doubles the portion while slashing dense calories.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hidden Traps -->
-            <div class="bg-rose-50 rounded-2xl p-6 md:p-8 shadow-sm">
-                <div class="flex items-center space-x-3 mb-6">
-                    <i class="fa-solid fa-triangle-exclamation text-rose text-2xl"></i>
-                    <h3 class="font-serif text-2xl font-semibold text-gray-800">The 6 Hidden Calorie Traps</h3>
-                </div>
-                <p class="text-gray-700 mb-6">Sri Lankan cooking is healthy, but these specific elements must be strictly controlled to stay within your deficit.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <h4 class="font-semibold text-rose mb-1">1. Thel Dala (Tempering)</h4>
-                        <p class="text-sm text-gray-600">Never pour from the bottle. Measure exactly <strong>max 1 tsp oil</strong> per curry pot. Use water splashes if sticking.</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <h4 class="font-semibold text-rose mb-1">2. Grated Coconut (Pol)</h4>
-                        <p class="text-sm text-gray-600">Ban this from daily mallum. Replace entirely with fresh lime juice, tomatoes, and onions for a massive calorie save.</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <h4 class="font-semibold text-rose mb-1">3. Thick Coconut Milk (Miti Kiri)</h4>
-                        <p class="text-sm text-gray-600">Use only the second/third squeeze (<strong>thin milk/vathura</strong>) for gravies. Avoid the thick, fatty cream.</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <h4 class="font-semibold text-rose mb-1">4. Pre-Frying Ingredients</h4>
-                        <p class="text-sm text-gray-600">No deep-fried eggplants or fish before currying. Bake, air-fry, or cook directly in the broth instead.</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <h4 class="font-semibold text-rose mb-1">5. Liquid Sugar</h4>
-                        <p class="text-sm text-gray-600">Skip the sugar or jaggery in your daily tea. Spiking insulin will stop fat burning and crash your energy.</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <h4 class="font-semibold text-rose mb-1">6. Deep-Fried Papadams</h4>
-                        <p class="text-sm text-gray-600">Replace the crunch of fried papadam with fresh, water-rich cucumber slices or lime-soaked onions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= MEAL PREP & MENU TAB ================= -->
-        <section id="meal-prep" class="tab-content hidden fade-in">
-            <h2 class="font-serif text-3xl text-sage-800 font-semibold mb-6">Menu & Preparation</h2>
-            
-            <!-- Weekly Prep Steps -->
-            <div class="mb-10">
-                <h3 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Sunday Weekly Meal Prep (1.5 Hours)</h3>
-                <div class="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-sage-300 before:to-transparent">
-                    
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-sage-100 text-sage-600 font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                            1
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                            <h4 class="font-semibold text-gray-800">Carb Base</h4>
-                            <p class="text-sm text-gray-600 mt-1">Cook rice. Finely shred and lightly steam cabbage. Store separately to create the 50/50 bowl daily.</p>
-                        </div>
-                    </div>
-
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-sage-100 text-sage-600 font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                            2
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                            <h4 class="font-semibold text-gray-800">Volume Proteins</h4>
-                            <p class="text-sm text-gray-600 mt-1">Cook lean chicken, beef, or Soya meat. Add equal parts chopped Pathola or Watakolu into the curry to absorb gravy and double the size.</p>
-                        </div>
-                    </div>
-
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-sage-100 text-sage-600 font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                            3
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                            <h4 class="font-semibold text-gray-800">Dinner Base</h4>
-                            <p class="text-sm text-gray-600 mt-1">Boil a large batch of soupy Parippu (dhal) with turmeric and garlic. Store plain; you will add fresh spinach right before eating.</p>
-                        </div>
-                    </div>
-
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-sage-100 text-sage-600 font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                            4
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                            <h4 class="font-semibold text-gray-800">Snacks & Extras</h4>
-                            <p class="text-sm text-gray-600 mt-1">Boil Mun Ata (green gram) until soft. Dice fresh Papaya. Dice a batch of onions and tomatoes for morning eggs.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Daily Menu -->
+      <!-- 8-Week Roadmap -->
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm">
+        <h3 class="text-lg font-bold text-slate-900 mb-4">8-Week Transformation Roadmap</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-sage-100 text-sage-800 font-bold flex items-center justify-center shrink-0 text-sm">1-3</div>
             <div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">The Daily Menu Pattern</h3>
-                <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
-                    <ul class="divide-y divide-gray-100">
-                        <li class="p-4 flex flex-col md:flex-row md:items-center hover:bg-sage-50 transition-colors">
-                            <div class="w-24 font-serif text-sage-600 font-semibold mb-1 md:mb-0">Wake Up</div>
-                            <div class="flex-grow text-gray-700">Warm water, followed by plain tea or soothing herbal Kenda (prevents early acid build-up).</div>
-                        </li>
-                        <li class="p-4 flex flex-col md:flex-row md:items-center hover:bg-sage-50 transition-colors">
-                            <div class="w-24 font-serif text-sage-600 font-semibold mb-1 md:mb-0">Breakfast</div>
-                            <div class="flex-grow text-gray-700">2 whole eggs + 2 egg whites (soft scrambled with tomatoes). Served with 2 slices bread or 5 string hoppers.</div>
-                        </li>
-                        <li class="p-4 flex flex-col md:flex-row md:items-center hover:bg-sage-50 transition-colors bg-sage-50/30">
-                            <div class="w-24 font-serif text-sage-700 font-semibold mb-1 md:mb-0">Lunch</div>
-                            <div class="flex-grow text-gray-700"><strong>The 50/50 Bowl:</strong> Rice & Cabbage mix. Massive portion of Soya/Chicken + Pathola curry. Side of Gotukola mallum (lime dressing, NO coconut).</div>
-                        </li>
-                        <li class="p-4 flex flex-col md:flex-row md:items-center hover:bg-sage-50 transition-colors">
-                            <div class="w-24 font-serif text-sage-600 font-semibold mb-1 md:mb-0">Snack</div>
-                            <div class="flex-grow text-gray-700">Bowl of diced Papaya (aids digestion) or soft-boiled Mun Ata.</div>
-                        </li>
-                        <li class="p-4 flex flex-col md:flex-row md:items-center hover:bg-sage-50 transition-colors">
-                            <div class="w-24 font-serif text-sage-600 font-semibold mb-1 md:mb-0">Dinner</div>
-                            <div class="flex-grow text-gray-700">Warm soupy dhal. Bring to simmer and toss in fresh spinach (Nivithi). Serve with a small roti. (Light and warm for perfect digestion before bed).</div>
-                        </li>
-                    </ul>
-                </div>
+              <h4 class="font-bold text-slate-800 text-sm">Weeks 1-3: Adaptation & Stamina Building</h4>
+              <p class="text-xs text-slate-600 mt-1">Focus on habit consistency, medication tapering recovery, and gentle core activation. Workouts build baseline fitness (3/10 stamina).</p>
             </div>
-        </section>
-
-        <!-- ================= WORKOUT TAB ================= -->
-        <section id="workout" class="tab-content hidden fade-in">
-            <div class="flex justify-between items-end mb-6">
-                <div>
-                    <h2 class="font-serif text-3xl text-sage-800 font-semibold">Core & Recomp Plan</h2>
-                    <p class="text-gray-600 mt-2">Post-partum and asthma-safe. No equipment needed.</p>
-                </div>
-                <div class="text-right hidden md:block">
-                    <span class="inline-block bg-sage-100 text-sage-700 text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider">3 Days Active</span>
-                </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-sage-100 text-sage-800 font-bold flex items-center justify-center shrink-0 text-sm">4-6</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-sm">Weeks 4-6: Progressive Strength & Core Pull</h4>
+              <p class="text-xs text-slate-600 mt-1">Increasing repetitions on squats and incline push-ups. Deep core (vacuums) begins pulling the lower abdomen inward naturally.</p>
             </div>
-
-            <!-- Warmup -->
-            <div class="bg-blush/30 border border-blush p-4 rounded-xl mb-6 flex items-start space-x-4">
-                <div class="text-rose mt-1 text-xl"><i class="fa-solid fa-fire"></i></div>
-                <div>
-                    <h4 class="font-semibold text-gray-800">Mandatory Warm-up (3 Mins)</h4>
-                    <p class="text-sm text-gray-600 mt-1">Arm circles (10 forward/back), gentle torso twists, 10 slow deep breaths expanding the ribcage.</p>
-                </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-sage-100 text-sage-800 font-bold flex items-center justify-center shrink-0 text-sm">7-8</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-sm">Weeks 7-8: Maximum Recomposition & Habit Lock-In</h4>
+              <p class="text-xs text-slate-600 mt-1">Visible reduction in abdominal distension, improved posture elongates the neck (reducing double chin appearance), and sustainable lifelong routine established.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Day 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="bg-sage-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold">1</span>
-                        <h3 class="font-serif text-xl font-semibold text-gray-800">Full Body & Deep Core</h3>
-                    </div>
-                    <ul class="space-y-3 text-gray-600 text-sm">
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Incline Push-ups (Hands on chair)</span> <strong>3 x 10 reps</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/cfns5VDVVvk" title="Incline Push-ups Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Bodyweight Squats</span> <strong>3 x 15 reps</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/RClKKQqsvXA" title="Bodyweight Squats Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="border-b pb-4 border-gray-50 text-sage-700">
-                            <div class="flex justify-between mb-3"><span>Stomach Vacuums (Belly to spine)</span> <strong>3 x 5 holds</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/cub3xhJXsAA" title="Stomach Vacuums Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="pb-1">
-                            <div class="flex justify-between mb-3"><span>Glute Bridges</span> <strong>3 x 15 reps</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/OUgsJ8-Vi0E" title="Glute Bridges Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Day 2 & 4 -->
-                <div class="bg-sage-50 p-6 rounded-2xl shadow-sm border border-sage-100">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="bg-sage-300 text-sage-800 w-8 h-8 rounded-lg flex items-center justify-center font-bold">2/4</span>
-                        <h3 class="font-serif text-xl font-semibold text-gray-800">Active Recovery</h3>
-                    </div>
-                    <div class="text-center py-4">
-                        <i class="fa-solid fa-person-walking text-4xl text-sage-400 mb-3"></i>
-                        <p class="text-gray-700">Gentle 20-30 minute walk with the kids.</p>
-                        <p class="text-sm text-gray-500 mt-1">Keep a conversational pace to protect asthma and aid recovery.</p>
-                    </div>
-                </div>
-
-                <!-- Day 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="bg-sage-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold">3</span>
-                        <h3 class="font-serif text-xl font-semibold text-gray-800">Posture & Agility</h3>
-                    </div>
-                    <ul class="space-y-3 text-gray-600 text-sm">
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Reverse Lunges</span> <strong>3 x 10 / leg</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/7pwO2gemRyg" title="Reverse Lunges Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Bird-Dogs (On hands & knees)</span> <strong>3 x 10 / side</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/_1j_HWknGLg" title="Bird-Dogs Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Wall Sits</span> <strong>3 x 30 sec</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/cWTZ8Am1Ee0" title="Wall Sits Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="pb-1 text-sage-700">
-                            <div class="flex justify-between mb-3"><span>Dead Bugs (Protect lower back)</span> <strong>3 x 10 reps</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/GbSC02oU3To" title="Dead Bugs Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Day 5 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="bg-sage-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold">5</span>
-                        <h3 class="font-serif text-xl font-semibold text-gray-800">Core & Leg Power</h3>
-                    </div>
-                    <ul class="space-y-3 text-gray-600 text-sm">
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Step-Ups (On low chair/step)</span> <strong>3 x 12 / leg</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/WRqHvOWkWbU" title="Step-Ups Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Modified Side Planks (On knees)</span> <strong>3 x 20 sec / side</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/7d-HTp-0vL4" title="Modified Side Planks Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="border-b pb-4 border-gray-50">
-                            <div class="flex justify-between mb-3"><span>Heel Taps (Lying on back)</span> <strong>3 x 15 reps</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/KaOGIHNTXZU" title="Heel Taps Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                        <li class="pb-1 text-sage-700">
-                            <div class="flex justify-between mb-3"><span>Stomach Vacuums</span> <strong>3 x 5 holds</strong></div>
-                            <iframe class="aspect-video w-full rounded-md shadow-sm mb-2" src="https://www.youtube.com/embed/cub3xhJXsAA" title="Stomach Vacuums Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <p class="text-center text-sm text-gray-500 mt-6 italic">Weekends (Days 6 & 7) are full rest days. Prioritize sleep and hydration.</p>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 mt-auto py-6">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <p class="font-serif italic text-sage-700 text-lg">"Small, consistent steps create lasting, beautiful changes."</p>
-            <p class="text-xs text-gray-400 mt-2 uppercase tracking-wide">You've got this, Shazna.</p>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- JavaScript for Tabs -->
-    <script>
-        function showTab(tabId) {
-            // Hide all sections
-            document.querySelectorAll('.tab-content').forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('fade-in'); // Reset animation
-            });
-            
-            // Show target section
-            const activeTab = document.getElementById(tabId);
-            activeTab.classList.remove('hidden');
-            // Small timeout to re-trigger animation
-            setTimeout(() => activeTab.classList.add('fade-in'), 10);
+    </div>
 
-            // Update Desktop Nav Styling
-            const desktopNavs = ['home', 'nutrition', 'meal-prep', 'workout'];
-            desktopNavs.forEach(id => {
-                const btn = document.getElementById('btn-' + id);
-                if(btn) {
-                    if(id === tabId) {
-                        btn.classList.remove('text-gray-500', 'border-transparent');
-                        btn.classList.add('text-sage-700', 'border-sage-600', 'font-semibold');
-                    } else {
-                        btn.classList.add('text-gray-500', 'border-transparent');
-                        btn.classList.remove('text-sage-700', 'border-sage-600', 'font-semibold');
-                    }
-                }
-            });
+    <!-- TAB 2: HIDDEN CALORIES & RULES -->
+    <div id="tab-rules" class="tab-content hidden space-y-6">
+      
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-amber-900 text-sm">
+        <h3 class="font-bold text-base mb-1 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+          Why Sri Lankan Cooking Hides Calories
+        </h3>
+        <p class="text-amber-800 text-xs leading-relaxed">
+          Sri Lankan food is naturally rich in vegetables and spices, but traditional prep methods hide hundreds of fat calories in oils, grated coconut, and thick coconut cream. Eliminating these 5 hidden traps cuts 400-500 calories daily without reducing food volume!
+        </p>
+      </div>
 
-            // Update Mobile Nav Styling
-            desktopNavs.forEach(id => {
-                const btnMob = document.getElementById('btn-' + id + '-mob');
-                if(btnMob) {
-                    if(id === tabId) {
-                        btnMob.classList.remove('text-gray-500', 'border-transparent');
-                        btnMob.classList.add('text-sage-700', 'border-sage-600', 'font-semibold');
-                    } else {
-                        btnMob.classList.add('text-gray-500', 'border-transparent');
-                        btnMob.classList.remove('text-sage-700', 'border-sage-600', 'font-semibold');
-                    }
-                }
-            });
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      <!-- The 5 Strict Rules -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-slate-900 text-sm">1. The "Thel Dala" (Tempering) Fix</h4>
+            <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">-200 Cal</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>The Trap:</strong> Pouring oil straight from the bottle for curry bases adds 2-3 tbsp (250+ calories) per pot.<br>
+            <strong>The Fix:</strong> Measure exactly 1 teaspoon of oil per pot. If onions stick, add a splash of water to steam-deglaze.
+          </p>
+        </div>
 
-        // Initialize default tab
-        document.addEventListener('DOMContentLoaded', () => {
-            showTab('home');
-        });
-    </script>
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-slate-900 text-sm">2. Zero Grated Coconut in Mallum</h4>
+            <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">-180 Cal</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>The Trap:</strong> Mixing half a cup of grated coconut into Gotukola or Mukunuwenna adds high dense fats.<br>
+            <strong>The Fix:</strong> Make mallum with red onions, diced tomatoes, green chillies, salt, and lime juice ONLY.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-slate-900 text-sm">3. Thin Coconut Milk (Vathura Kiri)</h4>
+            <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">-150 Cal</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>The Trap:</strong> Thick first-squeeze coconut cream (miti kiri) adds ~250 cal per half cup.<br>
+            <strong>The Fix:</strong> Use only 2nd/3rd squeeze thin milk or water. Thicken curries by mashing a piece of potato or dhal.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-slate-900 text-sm">4. No Pre-Frying Ingredients</h4>
+            <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">-220 Cal</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>The Trap:</strong> Deep-frying eggplants, fish, or boiled eggs before currying turns them into oil sponges.<br>
+            <strong>The Fix:</strong> Air-fry/bake eggplant, poach fish directly in Ambul Thiyal gravy, and soft-boil eggs.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Gastritis Golden Rules -->
+      <div class="bg-sage-50 border border-sage-200 rounded-2xl p-5">
+        <h4 class="font-bold text-sage-800 text-sm mb-2">Gastritis Prevention Protocol</h4>
+        <ul class="text-xs text-sage-700 space-y-2 list-disc list-inside">
+          <li><strong>Never Skip Breakfast:</strong> Eat within 45 minutes of waking to absorb overnight gastric acid build-up.</li>
+          <li><strong>Warm Liquid Dinners:</strong> Soupy dhals, broths, and Kiri Hodi digest effortlessly, preventing nighttime reflux.</li>
+          <li><strong>Natural Antacids:</strong> Use Goraka, Fenugreek seeds (uluhal), and papaya daily to soothe digestion.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- TAB 3: MEAL PREP & VARIETIES -->
+    <div id="tab-meals" class="tab-content hidden space-y-6">
+      
+      <!-- Sub-Navigation for Meals -->
+      <div class="flex border-b border-sand-200 space-x-4 text-sm font-medium">
+        <button onclick="switchMealTab('m-prep')" id="mtab-prep-btn" class="py-2 border-b-2 border-sage-600 text-sage-700 font-bold">90-Min Prep System</button>
+        <button onclick="switchMealTab('m-breakfast')" id="mtab-breakfast-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Breakfasts (4)</button>
+        <button onclick="switchMealTab('m-lunch')" id="mtab-lunch-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Lunches (4)</button>
+        <button onclick="switchMealTab('m-dinner')" id="mtab-dinner-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Dinners (4)</button>
+      </div>
+
+      <!-- MEAL SUB-TAB 1: PREP SYSTEM -->
+      <div id="mtab-prep" class="meal-subtab space-y-4">
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm">
+          <h3 class="font-bold text-slate-900 text-base mb-3">Sunday 90-Minute Batch Prep Workflow</h3>
+          <div class="space-y-3 text-xs text-slate-600">
+            <div class="p-3 bg-sand-50 rounded-lg">
+              <span class="font-bold text-slate-800 block mb-1">Step 1: The 50/50 Carb Base (15 Mins)</span>
+              Cook 4 cups red rice. Finely shred 1 large cabbage head and steam lightly for 6 mins. Store in separate containers in the fridge.
+            </div>
+            <div class="p-3 bg-sand-50 rounded-lg">
+              <span class="font-bold text-slate-800 block mb-1">Step 2: Volume Protein Curries (40 Mins)</span>
+              Batch-cook Chicken/Beef curry with chopped Snake Gourd (Pathola) cooked directly into the meat gravy. Batch-cook Soya Meat in thin milk gravy.
+            </div>
+            <div class="p-3 bg-sand-50 rounded-lg">
+              <span class="font-bold text-slate-800 block mb-1">Step 3: Soothing Dhal Base (20 Mins)</span>
+              Boil 2 cups red lentils with extra water, turmeric, ginger, and pandan leaves into a soupy broth. Store in a tub.
+            </div>
+            <div class="p-3 bg-sand-50 rounded-lg">
+              <span class="font-bold text-slate-800 block mb-1">Step 4: Snacks & Aromatics (15 Mins)</span>
+              Boil 2 cups Green Gram (Mun Ata), cube 1 fresh Papaya, and pre-dice red onions and tomatoes for fast morning egg scrambles.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEAL SUB-TAB 2: BREAKFASTS -->
+      <div id="mtab-breakfast" class="meal-subtab hidden grid sm:grid-cols-2 gap-4">
+        
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">1. Egg-White & Cabbage String Hoppers</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~320 Cal | 22g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 5 string hoppers tossed in 1 tsp oil with onions, curry leaves, 1 cup shredded cabbage, 1 whole egg, and 3 egg whites.</p>
+          <p class="text-xs text-sage-600 font-medium">Gastritis Benefit: High physical volume, zero raw stomach irritation.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">2. Savory Garlic & Spinach Oat Kenda</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~310 Cal | 20g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 1/2 cup oats simmered in 1.5 cups water with crushed garlic and ginger. Fold in 1.5 cups fresh spinach. Serve with 2 boiled eggs.</p>
+          <p class="text-xs text-sage-600 font-medium">Gastritis Benefit: Oats and garlic form a protective gel coating over stomach lining.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">3. Tomato & Lime Mun Ata Bowl</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~330 Cal | 21g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 3/4 cup boiled Green Gram mixed with 1/2 cup diced tomatoes, red onions, lime juice, pepper, and 1 whole boiled egg.</p>
+          <p class="text-xs text-sage-600 font-medium">Gastritis Benefit: Slow-digesting complex carbs prevent mid-morning acid buildup.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">4. Kurakkan Roti with Soupy Dhal</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~340 Cal | 19g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 1 dry-roasted Kurakkan (millet) roti served with 3/4 cup thin, soupy dhal and 2 boiled egg whites.</p>
+          <p class="text-xs text-sage-600 font-medium">Gastritis Benefit: Kurakkan stabilizes blood sugar and releases energy slowly.</p>
+        </div>
+
+      </div>
+
+      <!-- MEAL SUB-TAB 3: LUNCHES -->
+      <div id="mtab-lunch" class="meal-subtab hidden grid sm:grid-cols-2 gap-4">
+        
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">1. Chicken & Snake Gourd + Gotukola</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~480 Cal | 38g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 50/50 Red Rice & Cabbage mix (1 cup total), 150g chicken curry with 1.5 cups Snake Gourd cooked in gravy, plus 1 cup coconut-free Gotukola mallum.</p>
+          <p class="text-xs text-sage-600 font-medium">Volume Hack: Snake Gourd doubles the curry size for almost zero calories.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">2. Lean Beef & Ridge Gourd + Kankun</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~510 Cal | 39g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 50/50 Rice & Cauliflower mix, 150g fat-trimmed beef cooked with 1.5 cups Ridge Gourd (Watakolu), and garlic-stir-fried Kankun.</p>
+          <p class="text-xs text-sage-600 font-medium">Volume Hack: Ridge Gourd absorbs juices, making meat portion look massive.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">3. Soya Meat & Ash Pumpkin + Sweet Potato</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~460 Cal | 32g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 100g boiled sweet potato, 50g dry soya meat in spicy gravy, 1 cup Ash Pumpkin white curry (thin milk), and sliced cucumber salad.</p>
+          <p class="text-xs text-sage-600 font-medium">Volume Hack: Ash pumpkin is highly alkaline and soothing for gastritis.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">4. Ambul Thiyal Tuna + Dhal & Greens</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~470 Cal | 42g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 50/50 Rice & Cabbage mix, 150g Tuna Ambul Thiyal (Goraka based), 1/2 cup soupy dhal, and coconut-free Mukunuwenna mallum.</p>
+          <p class="text-xs text-sage-600 font-medium">Volume Hack: Goraka is a natural digestion aid gentler than vinegar.</p>
+        </div>
+
+      </div>
+
+      <!-- MEAL SUB-TAB 4: DINNERS -->
+      <div id="mtab-dinner" class="meal-subtab hidden grid sm:grid-cols-2 gap-4">
+        
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">1. Chicken Broth & Toast</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~360 Cal | 32g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 120g shredded chicken breast simmered in 2 cups broth with ginger, garlic, carrots, and cabbage. Serve with 1 dry whole-wheat toast slice.</p>
+          <p class="text-xs text-sage-600 font-medium">Night Benefit: Warm broth prevents nighttime acid reflux and aids deep sleep.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">2. Egg-White Godamba Roll-Up</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~350 Cal | 24g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 1 thin Godamba roti or wrap stuffed with a scramble of 1 whole egg, 3 egg whites, tomatoes, onions, and green peas.</p>
+          <p class="text-xs text-sage-600 font-medium">Night Benefit: Low-fat wrap satisfies cravings without heavy digestion.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">3. Soupy Dhal & Spinach + Boiled Eggs</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~370 Cal | 23g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 1 cup thin red lentil dhal with 2 big handfuls of fresh spinach wilted into it, 2 hard-boiled eggs, and 1/3 cup red rice.</p>
+          <p class="text-xs text-sage-600 font-medium">Night Benefit: Soft texture requires zero mechanical digestive work overnight.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+          <div class="flex justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">4. White Fish Kiri Hodi + Kurakkan Roti</h4>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">~380 Cal | 30g P</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Plate:</strong> 120g poached white fish in mild Kiri Hodi (fenugreek, thin milk, turmeric) with 1 medium Kurakkan roti.</p>
+          <p class="text-xs text-sage-600 font-medium">Night Benefit: Fenugreek (uluhal) acts as a natural antacid shield.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 4: WORKOUTS & VIDEOS -->
+    <div id="tab-workouts" class="tab-content hidden space-y-6">
+      
+      <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm">
+        <h3 class="font-bold text-slate-900 text-base mb-1">Weekly Exercise Schedule</h3>
+        <p class="text-xs text-slate-500 mb-4">No equipment needed. Perform at home or at the Pangollamada indoor stadium.</p>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+          <div class="bg-sage-50 p-2.5 rounded-lg border border-sage-200 font-bold text-sage-800">Mon: Workout A</div>
+          <div class="bg-sand-100 p-2.5 rounded-lg text-slate-600">Tue: Active Walk</div>
+          <div class="bg-sage-50 p-2.5 rounded-lg border border-sage-200 font-bold text-sage-800">Wed: Workout B</div>
+          <div class="bg-sand-100 p-2.5 rounded-lg text-slate-600">Thu: Active Walk</div>
+          <div class="bg-sage-50 p-2.5 rounded-lg border border-sage-200 font-bold text-sage-800">Fri: Workout A/B</div>
+          <div class="bg-slate-100 p-2.5 rounded-lg text-slate-400 col-span-3 sm:col-span-3">Sat & Sun: Rest & Rejuvenate</div>
+        </div>
+      </div>
+
+      <!-- WORKOUT A EXERCISES WITH VIDEO EMBEDS -->
+      <div class="space-y-4">
+        <h3 class="font-bold text-slate-900 text-lg flex items-center">
+          <span class="w-3 h-3 bg-sage-600 rounded-full mr-2"></span>
+          Workout Exercises & Video Form Guides
+        </h3>
+
+        <!-- Exercise 1: Incline Push-ups -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Incline Push-ups (Chest & Arms)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 8 - 12 Reps | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Upper Body</span>
+          </div>
+          <p class="text-xs text-slate-600">Hands on a sturdy chair, bench, or low wall. Keep body in a straight line, lower chest to edge, and push up. Builds posture to reduce double chin appearance.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/cfns5VDVVvk" title="Incline Push Ups Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 2: Bodyweight Squats -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Bodyweight Squats (Legs & Glutes)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 12 - 15 Reps | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Lower Body</span>
+          </div>
+          <p class="text-xs text-slate-600">Feet shoulder-width apart. Push hips back as if sitting in a chair. Keep chest up and exhale on the way up.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/n_xLyzPEX7A" title="Bodyweight Squats Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 3: Stomach Vacuums -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Stomach Vacuums (Deep Corset Core)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 5 Holds (10 sec each) | Rest 30s</p>
+            </div>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Mummy Pooch Fix</span>
+          </div>
+          <p class="text-xs text-slate-600">Stand tall, exhale all air completely, and pull belly button back into the spine as hard as possible. Hold for 10 seconds while keeping lungs empty.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/mp6WamWmG-4" title="Stomach Vacuum Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 4: Glute Bridges -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Glute Bridges (Hips & Lower Back)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 15 Reps | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Posture Rehab</span>
+          </div>
+          <p class="text-xs text-slate-600">Lie on back with knees bent. Drive through heels to lift hips toward ceiling. Squeeze glutes at top to fix post-partum pelvic tilt.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/OUgsJ8-Vi0E" title="Glute Bridge Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 5: Bird-Dogs -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Bird-Dogs (Core & Balance)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 10 Reps per side | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Core Stability</span>
+          </div>
+          <p class="text-xs text-slate-600">On hands and knees with flat back. Extend right arm forward and left leg straight back simultaneously without arching lower back.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/_1j_HWknGLg" title="Bird Dog Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 6: Dead Bugs -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Dead Bugs (Lower Abs)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 10 Reps per side | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Safe Post-Partum Abs</span>
+          </div>
+          <p class="text-xs text-slate-600">Lie flat on back with knees at 90 degrees. Lower opposite arm and leg toward floor while pressing lower back firmly into the floor.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/DqLL45uk2Tk" title="Dead Bugs Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 7: Reverse Lunges -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Reverse Lunges (Legs & Balance)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 10 Reps per leg | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Knee-Safe Legs</span>
+          </div>
+          <p class="text-xs text-slate-600">Step backward with one leg and lower hips until both knees bend to 90 degrees. Stepping back protects knees and asthma breathing.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/38xlLGfguz4" title="Reverse Lunge Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 8: Wall Sits -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Wall Sits (Leg Stamina)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 30 sec holds | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Stamina Build</span>
+          </div>
+          <p class="text-xs text-slate-600">Press back flat against a wall and slide down until knees are at 90 degrees. Hold while maintaining slow, deep breathing.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/mDdLC-yKudY" title="Wall Sit Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 9: Step-Ups -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Step-Ups (Glutes & Quads)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 12 Reps per leg | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Functional Strength</span>
+          </div>
+          <p class="text-xs text-slate-600">Use a sturdy low chair, bench, or bottom step of stairs. Step up with right foot, bring left foot up, and step down softly.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/8q9LVgN2RD4" title="Step Ups Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 10: Modified Side Planks -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Modified Side Planks (Obliques)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 20 sec per side | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Waist Tighter</span>
+          </div>
+          <p class="text-xs text-slate-600">Lie on side propped on forearm with knees bent. Lift hips so body forms a straight line from head to knees. Tightens waist sides.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/8imTmxwFgRg" title="Modified Side Plank Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Exercise 11: Heel Taps -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Heel Taps (Lower Abdominal Control)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 15 Reps | Rest 45s</p>
+            </div>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Core Rehab</span>
+          </div>
+          <p class="text-xs text-slate-600">Lie on back with legs raised at 90 degrees. Slowly lower one heel to tap the floor while keeping core braced and lower back flat.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/V87VgAcB6CY" title="Heel Taps Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-sand-200 py-6 mt-12">
+    <div class="max-w-5xl mx-auto px-4 text-center text-xs text-slate-400">
+      <p>Customized Plan for Shazna • Designed for Recomposition & Core Health</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Tabs -->
+  <script>
+    function switchTab(tabId) {
+      // Hide all main tab contents
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      
+      // Reset main nav button styles
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-sage-600', 'text-white');
+        btn.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-sand-100');
+      });
+
+      // Show selected tab content
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+      // Highlight active nav button
+      const activeBtn = document.getElementById('nav-' + tabId);
+      activeBtn.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-sand-100');
+      activeBtn.classList.add('bg-sage-600', 'text-white');
+    }
+
+    function switchMealTab(mealTabId) {
+      // Hide all meal subtabs
+      document.querySelectorAll('.meal-subtab').forEach(el => el.classList.add('hidden'));
+
+      // Reset meal tab buttons
+      document.querySelectorAll('[id^="mtab-"]').forEach(btn => {
+        btn.classList.remove('border-sage-600', 'text-sage-700', 'font-bold');
+        btn.classList.add('border-transparent', 'text-slate-500');
+      });
+
+      // Show selected subtab
+      document.getElementById(mealTabId).classList.remove('hidden');
+
+      // Highlight active meal subtab button
+      const activeBtn = document.getElementById(mealTabId + '-btn');
+      activeBtn.classList.remove('border-transparent', 'text-slate-500');
+      activeBtn.classList.add('border-sage-600', 'text-sage-700', 'font-bold');
+    }
+  </script>
 </body>
 </html>
