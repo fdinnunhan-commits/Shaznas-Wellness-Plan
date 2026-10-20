@@ -117,7 +117,7 @@
       <div class="bg-gradient-to-br from-sage-700 to-sage-800 text-white rounded-2xl p-6 shadow-md">
         <h2 class="text-xl font-bold mb-2">The Recomposition Strategy</h2>
         <p class="text-sage-100 text-sm leading-relaxed mb-4">
-          At 5'4" and 56kg, Shazna is at a very healthy weight. The "mummy pooch" is caused by post-partum muscle looseness (weakened Transverse Abdominis) and posture rather than excess body weight. Our goal is <strong>body recomposition</strong>: burning targeted fat while tightening deep core muscles without triggering her gastritis.
+          At 5'4" and 56kg, Shazna is at a very healthy weight. The "mummy pooch" and double chin are caused by post-partum muscle looseness (weakened Transverse Abdominis) and posture rather than excess body weight. Our goal is <strong>body recomposition</strong>: burning targeted fat while tightening deep core muscles without triggering her gastritis.
         </p>
         <div class="grid sm:grid-cols-3 gap-3 text-xs">
           <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
@@ -244,10 +244,10 @@
       
       <!-- Sub-Navigation for Meals -->
       <div class="flex border-b border-sand-200 space-x-4 text-sm font-medium">
-        <button onclick="switchMealTab('mtab-prep')" id="mtab-prep-btn" class="py-2 border-b-2 border-sage-600 text-sage-700 font-bold">90-Min Prep System</button>
-        <button onclick="switchMealTab('mtab-breakfast')" id="mtab-breakfast-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Breakfasts (4)</button>
-        <button onclick="switchMealTab('mtab-lunch')" id="mtab-lunch-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Lunches (4)</button>
-        <button onclick="switchMealTab('mtab-dinner')" id="mtab-dinner-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Dinners (4)</button>
+        <button onclick="switchMealTab('prep')" id="mtab-prep-btn" class="py-2 border-b-2 border-sage-600 text-sage-700 font-bold">90-Min Prep System</button>
+        <button onclick="switchMealTab('breakfast')" id="mtab-breakfast-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Breakfasts (4)</button>
+        <button onclick="switchMealTab('lunch')" id="mtab-lunch-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Lunches (4)</button>
+        <button onclick="switchMealTab('dinner')" id="mtab-dinner-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800">Dinners (4)</button>
       </div>
 
       <!-- MEAL SUB-TAB 1: PREP SYSTEM -->
@@ -623,27 +623,41 @@
       var activeBtn = document.getElementById('nav-' + tabId);
       activeBtn.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-sand-100');
       activeBtn.classList.add('bg-sage-600', 'text-white');
+
+      // If switching to meals tab, ensure default subtab is active
+      if (tabId === 'meals') {
+        switchMealTab('prep');
+      }
     }
 
-    function switchMealTab(mealTabId) {
+    function switchMealTab(mealSubTabKey) {
       // Hide all meal subtabs
       document.querySelectorAll('.meal-subtab').forEach(function(el) {
         el.classList.add('hidden');
       });
 
-      // Reset meal tab buttons
-      document.querySelectorAll('[id^="mtab-"]').forEach(function(btn) {
-        btn.classList.remove('border-sage-600', 'text-sage-700', 'font-bold');
-        btn.classList.add('border-transparent', 'text-slate-500');
+      // Reset all meal subtab buttons
+      var subBtns = ['prep', 'breakfast', 'lunch', 'dinner'];
+      subBtns.forEach(function(key) {
+        var btn = document.getElementById('mtab-' + key + '-btn');
+        if (btn) {
+          btn.classList.remove('border-sage-600', 'text-sage-700', 'font-bold');
+          btn.classList.add('border-transparent', 'text-slate-500');
+        }
       });
 
-      // Show selected subtab
-      document.getElementById(mealTabId).classList.remove('hidden');
+      // Show targeted subtab element
+      var targetSubtab = document.getElementById('mtab-' + mealSubTabKey);
+      if (targetSubtab) {
+        targetSubtab.classList.remove('hidden');
+      }
 
-      // Highlight active meal subtab button
-      var activeBtn = document.getElementById(mealTabId + '-btn');
-      activeBtn.classList.remove('border-transparent', 'text-slate-500');
-      activeBtn.classList.add('border-sage-600', 'text-sage-700', 'font-bold');
+      // Highlight active subtab button
+      var activeSubBtn = document.getElementById('mtab-' + mealSubTabKey + '-btn');
+      if (activeSubBtn) {
+        activeSubBtn.classList.remove('border-transparent', 'text-slate-500');
+        activeSubBtn.classList.add('border-sage-600', 'text-sage-700', 'font-bold');
+      }
     }
   </script>
 </body>
