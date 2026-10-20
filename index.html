@@ -117,7 +117,7 @@
       <div class="bg-gradient-to-br from-sage-700 to-sage-800 text-white rounded-2xl p-6 shadow-md">
         <h2 class="text-xl font-bold mb-2">The Recomposition Strategy</h2>
         <p class="text-sage-100 text-sm leading-relaxed mb-4">
-          At 5'4" and 56kg, Shazna is at a very healthy weight. The "mummy pooch" and double chin are caused by post-partum muscle looseness (weakened Transverse Abdominis) and posture rather than excess body weight. Our goal is <strong>body recomposition</strong>: burning targeted fat while tightening deep core muscles without triggering her gastritis.
+          At 5'4" and 56kg, Shazna is at a very healthy weight. The "mummy pooch" is caused by post-partum muscle looseness (weakened Transverse Abdominis) and posture rather than excess body weight. Our goal is <strong>body recomposition</strong>: burning targeted fat while tightening deep core muscles without triggering her gastritis.
         </p>
         <div class="grid sm:grid-cols-3 gap-3 text-xs">
           <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
@@ -403,9 +403,10 @@
     <!-- TAB 4: WORKOUTS & VIDEOS -->
     <div id="tab-workouts" class="tab-content hidden space-y-6">
       
+      <!-- Weekly Schedule Banner -->
       <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm">
         <h3 class="font-bold text-slate-900 text-base mb-1">Weekly Exercise Schedule</h3>
-        <p class="text-xs text-slate-500 mb-4">No equipment needed. Perform at home or at the Pangollamada indoor stadium.</p>
+        <p class="text-xs text-slate-500 mb-4">No equipment needed. Perform at home.</p>
         
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
           <div class="bg-sage-50 p-2.5 rounded-lg border border-sage-200 font-bold text-sage-800">Mon: Workout A</div>
@@ -417,18 +418,22 @@
         </div>
       </div>
 
-      <!-- WORKOUT EXERCISES WITH VIDEO EMBEDS -->
-      <div class="space-y-4">
-        <h3 class="font-bold text-slate-900 text-lg flex items-center">
-          <span class="w-3 h-3 bg-sage-600 rounded-full mr-2"></span>
-          Workout Exercises & Video Form Guides
-        </h3>
+      <!-- Workout A vs B vs Progressions Sub-Navigation -->
+      <div class="flex border-b border-sand-200 space-x-4 text-sm font-medium overflow-x-auto no-scrollbar">
+        <button onclick="switchWorkoutSubTab('workout-a')" id="wtab-a-btn" class="py-2 border-b-2 border-sage-600 text-sage-700 font-bold whitespace-nowrap">Workout A (Full Body & Core)</button>
+        <button onclick="switchWorkoutSubTab('workout-b')" id="wtab-b-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">Workout B (Posture & Stability)</button>
+        <button onclick="switchWorkoutSubTab('progressions')" id="wtab-prog-btn" class="py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">Weeks 5-8 Progressions</button>
+      </div>
 
-        <!-- Exercise 1: Incline Push-ups -->
+      <!-- WORKOUT A CONTENT -->
+      <div id="wtab-workout-a" class="workout-subtab space-y-4">
+        <p class="text-xs text-slate-500">Performed on Mondays & Fridays. Focuses on core activation (mummy pooch reduction) and lower-body strength.</p>
+        
+        <!-- Incline Push-ups -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Incline Push-ups (Chest & Arms)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">1. Incline Push-ups (Chest & Arms)</h4>
               <p class="text-xs text-slate-500">3 Sets x 8 - 12 Reps | Rest 60s</p>
             </div>
             <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Upper Body</span>
@@ -439,11 +444,11 @@
           </div>
         </div>
 
-        <!-- Exercise 2: Bodyweight Squats -->
+        <!-- Bodyweight Squats -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Bodyweight Squats (Legs & Glutes)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">2. Bodyweight Squats (Legs & Glutes)</h4>
               <p class="text-xs text-slate-500">3 Sets x 12 - 15 Reps | Rest 60s</p>
             </div>
             <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Lower Body</span>
@@ -454,11 +459,11 @@
           </div>
         </div>
 
-        <!-- Exercise 3: Stomach Vacuums -->
+        <!-- Stomach Vacuums -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Stomach Vacuums (Deep Corset Core)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">3. Stomach Vacuums (Deep Corset Core)</h4>
               <p class="text-xs text-slate-500">3 Sets x 5 Holds (10 sec each) | Rest 30s</p>
             </div>
             <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Mummy Pooch Fix</span>
@@ -469,11 +474,11 @@
           </div>
         </div>
 
-        <!-- Exercise 4: Glute Bridges -->
+        <!-- Glute Bridges -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Glute Bridges (Hips & Lower Back)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">4. Glute Bridges (Hips & Lower Back)</h4>
               <p class="text-xs text-slate-500">3 Sets x 15 Reps | Rest 60s</p>
             </div>
             <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Posture Rehab</span>
@@ -483,42 +488,17 @@
             <iframe class="w-full h-full" src="https://www.youtube.com/embed/OUgsJ8-Vi0E" title="Glute Bridge Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
+      </div>
 
-        <!-- Exercise 5: Bird-Dogs -->
+      <!-- WORKOUT B CONTENT -->
+      <div id="wtab-workout-b" class="workout-subtab hidden space-y-4">
+        <p class="text-xs text-slate-500">Performed on Wednesdays. Focuses on unilateral balance, posture, and deep core stability.</p>
+        
+        <!-- Reverse Lunges -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Bird-Dogs (Core & Balance)</h4>
-              <p class="text-xs text-slate-500">3 Sets x 10 Reps per side | Rest 60s</p>
-            </div>
-            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Core Stability</span>
-          </div>
-          <p class="text-xs text-slate-600">On hands and knees with flat back. Extend right arm forward and left leg straight back simultaneously without arching lower back.</p>
-          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/_1j_HWknGLg" title="Bird Dog Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <!-- Exercise 6: Dead Bugs -->
-        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
-          <div class="flex justify-between items-start">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm">Dead Bugs (Lower Abs)</h4>
-              <p class="text-xs text-slate-500">3 Sets x 10 Reps per side | Rest 60s</p>
-            </div>
-            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Safe Post-Partum Abs</span>
-          </div>
-          <p class="text-xs text-slate-600">Lie flat on back with knees at 90 degrees. Lower opposite arm and leg toward floor while pressing lower back firmly into the floor.</p>
-          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/DqLL45uk2Tk" title="Dead Bugs Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <!-- Exercise 7: Reverse Lunges -->
-        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
-          <div class="flex justify-between items-start">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm">Reverse Lunges (Legs & Balance)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">1. Reverse Lunges (Legs & Balance)</h4>
               <p class="text-xs text-slate-500">3 Sets x 10 Reps per leg | Rest 60s</p>
             </div>
             <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Knee-Safe Legs</span>
@@ -529,11 +509,26 @@
           </div>
         </div>
 
-        <!-- Exercise 8: Wall Sits -->
+        <!-- Bird-Dogs -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Wall Sits (Leg Stamina)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">2. Bird-Dogs (Core & Balance)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 10 Reps per side | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Core Stability</span>
+          </div>
+          <p class="text-xs text-slate-600">On hands and knees with flat back. Extend right arm forward and left leg straight back simultaneously without arching lower back.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/_1j_HWknGLg" title="Bird Dog Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Wall Sits -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">3. Wall Sits (Leg Stamina)</h4>
               <p class="text-xs text-slate-500">3 Sets x 30 sec holds | Rest 60s</p>
             </div>
             <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Stamina Build</span>
@@ -544,11 +539,26 @@
           </div>
         </div>
 
-        <!-- Exercise 9: Step-Ups -->
+        <!-- Dead Bugs -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Step-Ups (Glutes & Quads)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">4. Dead Bugs (Lower Abs)</h4>
+              <p class="text-xs text-slate-500">3 Sets x 10 Reps per side | Rest 60s</p>
+            </div>
+            <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Safe Post-Partum Abs</span>
+          </div>
+          <p class="text-xs text-slate-600">Lie flat on back with knees at 90 degrees. Lower opposite arm and leg toward floor while pressing lower back firmly into the floor.</p>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/DqLL45uk2Tk" title="Dead Bugs Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Step-Ups -->
+        <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">5. Step-Ups (Glutes & Quads)</h4>
               <p class="text-xs text-slate-500">3 Sets x 12 Reps per leg | Rest 60s</p>
             </div>
             <span class="text-xs bg-sand-200 text-slate-700 px-2 py-0.5 rounded font-medium">Functional Strength</span>
@@ -559,11 +569,11 @@
           </div>
         </div>
 
-        <!-- Exercise 10: Modified Side Planks -->
+        <!-- Modified Side Planks -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Modified Side Planks (Obliques)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">6. Modified Side Planks (Obliques)</h4>
               <p class="text-xs text-slate-500">3 Sets x 20 sec per side | Rest 60s</p>
             </div>
             <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Waist Tighter</span>
@@ -574,11 +584,11 @@
           </div>
         </div>
 
-        <!-- Exercise 11: Heel Taps -->
+        <!-- Heel Taps -->
         <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-3">
           <div class="flex justify-between items-start">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm">Heel Taps (Lower Abdominal Control)</h4>
+              <h4 class="font-bold text-slate-900 text-sm">7. Heel Taps (Lower Abdominal Control)</h4>
               <p class="text-xs text-slate-500">3 Sets x 15 Reps | Rest 45s</p>
             </div>
             <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">Core Rehab</span>
@@ -588,7 +598,43 @@
             <iframe class="w-full h-full" src="https://www.youtube.com/embed/V87VgAcB6CY" title="Heel Taps Form" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
+      </div>
 
+      <!-- WEEKS 5-8 PROGRESSIONS CONTENT -->
+      <div id="wtab-progressions" class="workout-subtab hidden space-y-4">
+        <div class="bg-sage-50 border border-sage-200 rounded-2xl p-5">
+          <h4 class="font-bold text-sage-800 text-sm mb-1">Advanced Bodyweight Overload Protocol (Weeks 5-8)</h4>
+          <p class="text-xs text-sage-700 leading-relaxed">
+            Once baseline movements become easy after 4 weeks, avoid adding heavy external weights. Instead, increase <strong>Time Under Tension (TUT)</strong>, adjust leverage angles, and introduce isometric holds to continually tone muscle safely without straining joints.
+          </p>
+        </div>
+
+        <!-- Progression Cards -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+            <h5 class="font-bold text-slate-900 text-sm">1. Incline Push-ups</h5>
+            <p class="text-xs text-slate-600"><strong>Progression:</strong> Lower the hand placement angle (e.g., from high table to lower step). Apply a 3-second slow lowering tempo before pressing up.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+            <h5 class="font-bold text-slate-900 text-sm">2. Bodyweight Squats</h5>
+            <p class="text-xs text-slate-600"><strong>Progression:</strong> Use a 3-1-1 tempo (3 seconds down, 1 second pause at the bottom, 1 second explosive rise) to maximize quad and glute fiber recruitment.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+            <h5 class="font-bold text-slate-900 text-sm">3. Glute Bridges</h5>
+            <p class="text-xs text-slate-600"><strong>Progression:</strong> Transition from two-legged bridges to <strong>Single-Leg Glute Bridges</strong> (8-10 reps per leg) to double resistance on working glutes.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+            <h5 class="font-bold text-slate-900 text-sm">4. Stomach Vacuums</h5>
+            <p class="text-xs text-slate-600"><strong>Progression:</strong> Move from standing to **Quadruped Position** (hands and knees on the floor). Pulling the belly inward against gravity intensifies transverse abdominis engagement.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-sand-200 shadow-sm space-y-2">
+            <div class="flex justify-between items-center">
+              <h5 class="font-bold text-slate-900 text-sm">5. Dead Bugs & Reverse Lunges</h5>
+              <span class="text-xs bg-sage-100 text-sage-800 px-2 py-0.5 rounded font-bold">2-Sec Pause</span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>Progression:</strong> Add a strict 2-second isometric pause at the bottom of every single repetition while maintaining a flat lower back and controlled breath.</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -623,6 +669,9 @@
       if (tabId === 'meals') {
         switchMealTab('prep');
       }
+      if (tabId === 'workouts') {
+        switchWorkoutSubTab('workout-a');
+      }
     }
 
     function switchMealTab(mealSubTabKey) {
@@ -648,6 +697,35 @@
       if (activeSubBtn) {
         activeSubBtn.classList.remove('border-transparent', 'text-slate-500');
         activeSubBtn.classList.add('border-sage-600', 'text-sage-700', 'font-bold');
+      }
+    }
+
+    function switchWorkoutSubTab(workoutKey) {
+      // Hide all workout subtabs (both regular subtabs and progressional views if any share class)
+      document.querySelectorAll('#tab-workouts .workout-subtab').forEach(function(el) {
+        el.classList.add('hidden');
+      });
+
+      var workoutKeys = ['workout-a', 'workout-b', 'progressions'];
+      workoutKeys.forEach(function(key) {
+        var btnId = key === 'workout-a' ? 'wtab-a-btn' : (key === 'workout-b' ? 'wtab-b-btn' : 'wtab-prog-btn');
+        var btn = document.getElementById(btnId);
+        if (btn) {
+          btn.classList.remove('border-sage-600', 'text-sage-700', 'font-bold');
+          btn.classList.add('border-transparent', 'text-slate-500');
+        }
+      });
+
+      var targetWorkout = document.getElementById('wtab-' + workoutKey);
+      if (targetWorkout) {
+        targetWorkout.classList.remove('hidden');
+      }
+
+      var activeBtnId = workoutKey === 'workout-a' ? 'wtab-a-btn' : (workoutKey === 'workout-b' ? 'wtab-b-btn' : 'wtab-prog-btn');
+      var activeWorkoutBtn = document.getElementById(activeBtnId);
+      if (activeWorkoutBtn) {
+        activeWorkoutBtn.classList.remove('border-transparent', 'text-slate-500');
+        activeWorkoutBtn.classList.add('border-sage-600', 'text-sage-700', 'font-bold');
       }
     }
   </script>
